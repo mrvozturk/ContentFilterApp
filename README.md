@@ -1,37 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ContentFilterApp
 
-## Getting Started
+ContentFilterApp, belirli kurallara ve filtrelere göre içerikleri dinamik olarak filtreleyen bir **Next.js** uygulamasıdır. **React**, **TypeScript**, ve **Tailwind CSS** kullanarak geliştirilmiştir.
 
-First, run the development server:
+---
 
-```bash
+## Başlangıç
+
+Projeyi çalıştırmadan önce aşağıdaki adımları takip edin.
+
+### Gerekli Bağımlılıkları Yükleme
+
+- Öncelikle, proje dizininde aşağıdaki komutu çalıştırarak bağımlılıkları yükleyin:
+
+```sh
+yarn install
+# veya
+npm install
+```
+
+- Aşağıdaki komutu çalıştırarak uygulamayı başlatabilirsiniz
+
+```sh
 npm run dev
-# or
+# veya
 yarn dev
-# or
+# veya
 pnpm dev
-# or
+# veya
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Daha sonra [**http://localhost:3000**](http://localhost:3000) adresine giderek projeyi tarayıcınızda görüntüleyebilirsiniz
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ContentFilterApp/
+│-- src/
+│   ├── app/
+│   │   ├── content/[id]/       # Dinamik içerik sayfası
+│   │   │   ├── loading.tsx     # İçerik yüklenme ekranı
+│   │   │   ├── page.tsx        # İçerik detay sayfası
+│   │   ├── layout.tsx          # Genel sayfa düzeni
+│   │   ├── page.tsx            # Ana sayfa
+│   ├── data/
+│   │   ├── dummy.json          # Örnek JSON verisi
+│   ├── components/             # Yeniden kullanılabilir bileşenler
+│   │   ├── category/           # Kategori filtreleme bileşeni
+│   │   ├── contentCard/        # İçerik kart bileşeni
+│   │   ├── contentGrid/        # Grid düzeninde içerik gösterimi
+│   │   ├── contentPage/        # İçerik detay bileşeni
+│   │   ├── filterBar/          # Filtreleme çubuğu bileşeni
+│   │   ├── searchBar/          # Arama bileşeni
+│-- public/
+│   ├── favicon.ico             # Favicon dosyası
+│-- styles/
+│   ├── globals.css             # Global CSS stilleri
+│-- .eslintrc.json              # ESLint yapılandırması
+│-- .gitignore                  # Git için hariç tutulacak dosyalar
+│-- README.md                   # Proje dökümantasyonu
+│-- next.config.mjs             # Next.js yapılandırma dosyası
+│-- package.json                # Bağımlılıklar ve proje bilgisi
+│-- tailwind.config.ts          # Tailwind CSS yapılandırması
+│-- tsconfig.json               # TypeScript yapılandırması
 
-## Learn More
+##  Kullanılan Teknolojiler
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ContentFilterApp
+- **Next.js** - React tabanlı sunucu taraflı ve istemci taraflı rendering.
+- **TypeScript** - Daha güvenli ve ölçeklenebilir JavaScript kodlama.
+- **Tailwind CSS** - Modern UI stilleri.
