@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
-import contentData from './../../app/data/dummy.json';
-import FilterBar from './../filterBar';
-import ContentList from './../contentList';
+import contentData from '../../app/data/dummy.json';
+import FilterBar from '../filterBar';
+import ContentList from '../contentList';
 
-const HomeContent = () => {
+const ContentPage = () => {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -65,4 +65,4 @@ const HomeContent = () => {
   );
 };
 
-export default HomeContent;
+export default ContentPage;
