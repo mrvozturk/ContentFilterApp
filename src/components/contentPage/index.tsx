@@ -1,39 +1,42 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 import contentData from '../../app/data/dummy.json';
 import FilterBar from '../filterBar';
-import ContentList from '../contentList';
+import ContentGrid from '../contentGrid';
 
 const ContentPage = () => {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  const categories = [
-    'Tümü',
-    ...Array.from(new Set(contentData.map(item => item.category)))
-  ];
+  const categories = useMemo(
+    () => [
+      'Tümü',
+      ...Array.from(new Set(contentData.map(item => item.category)))
+    ],
+    []
+  );
 
-  const filteredContent = contentData.filter(
-    item =>
-      (selectedCategory === 'Tümü' || item.category === selectedCategory) &&
-      item.title.toLowerCase().includes(search.toLowerCase())
+  const filteredContent = useMemo(
+    () =>
+      contentData.filter(
+        item =>
+          (selectedCategory === 'Tümü' || item.category === selectedCategory) &&
+          item.title.toLowerCase().includes(search.toLowerCase())
+      ),
+    [selectedCategory, search]
   );
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollButton(window.scrollY > 300);
-    };
+    const handleScroll = () => setShowScrollButton(window.scrollY > 300);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <div className='max-w-7xl mx-auto p-4 md:p-8'>
@@ -49,8 +52,7 @@ const ContentPage = () => {
           setSelectedCategory={setSelectedCategory}
           categories={categories}
         />
-
-        <ContentList filteredContent={filteredContent} />
+        <ContentGrid content={filteredContent} />
       </div>
 
       {showScrollButton && (
