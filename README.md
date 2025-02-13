@@ -33,6 +33,7 @@ bun dev
 - Daha sonra [**http://localhost:3000**](http://localhost:3000) adresine giderek projeyi tarayıcınızda görüntüleyebilirsiniz
 
 
+```sh
 ContentFilterApp/
 │-- src/
 │   ├── app/
@@ -62,6 +63,7 @@ ContentFilterApp/
 │-- tailwind.config.ts          # Tailwind CSS yapılandırması
 │-- tsconfig.json               # TypeScript yapılandırması
 
+```
 ##  Kullanılan Teknolojiler
 
 - **Next.js** - React tabanlı sunucu taraflı ve istemci taraflı rendering.
