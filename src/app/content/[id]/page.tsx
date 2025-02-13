@@ -30,14 +30,12 @@ const ContentDetail = ({ params }: { params: { id: string } }) => {
 const ContentDetailPage = ({ params }: { params: { id: string } }) => {
   return (
     <div className='flex flex-col m-4 md:m-10 h-screen'>
-      {/* Sayfa Başlığı */}
       <div className='flex justify-between items-center'>
         <h1 className='text-xl font-extrabold md:text-3xl text-[#90be5c]'>
           Bilgi Köşesi
         </h1>
       </div>
 
-      {/* Geri Dön Linki */}
       <Link
         href='/'
         className='text-gray-600 hover:underline text-sm md:text-base mt-4 mb-4 md:mb-4 font-semibold'
@@ -45,7 +43,6 @@ const ContentDetailPage = ({ params }: { params: { id: string } }) => {
         ← Geri Dön
       </Link>
 
-      {/* İçerik Bölgesi (Suspense ile Yükleme) */}
       <Suspense fallback={<Loading />}>
         <ContentDetail params={params} />
       </Suspense>
