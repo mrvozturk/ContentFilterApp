@@ -1,7 +1,7 @@
-import HomeContent from '../components/contentPage';
+import ContentPage from '../components/contentPage';
 
-const HomePage = () => {
-  return <HomeContent />;
+const IndexPage = () => {
+  return <ContentPage />;
 };
 
-export default HomePage;
+export default IndexPage;

@@ -10,7 +10,6 @@ const ContentDetail = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className='flex flex-col m-4 md:m-10 h-screen'>
-      {/* Başlık ve Kategori Aynı Hizada */}
       <div className='flex justify-between items-center'>
         <h1 className='text-xl font-extrabold md:text-3xl text-[#90be5c]'>
           Bilgi Köşesi
